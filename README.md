@@ -120,6 +120,11 @@ l'export web.
 | [`docs/environnement.md`](docs/environnement.md) | Audit d'environnement : ce qui a été exécuté et mesuré, versions de référence SDK 58 |
 | [`docs/ux-responsable.md`](docs/ux-responsable.md) | Comment chaque principe d'UX responsable est implémenté — et testé |
 | [`docs/roadmap.md`](docs/roadmap.md) | Phases 1 à 4 et points de vigilance transverses |
+| [`ci/`](ci/README.md) | Pipeline GitHub Actions prêt à l'emploi (typage, 109 tests, bundles web + Android) |
+
+> Le pipeline CI est livré dans `ci/` et **non** dans `.github/workflows/` :
+> GitHub refuse la création de workflows sans la permission `workflows`.
+> Une commande d'installation est fournie dans [`ci/README.md`](ci/README.md).
 
 ---
 
