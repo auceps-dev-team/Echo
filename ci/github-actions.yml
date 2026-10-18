@@ -1,0 +1,45 @@
+name: CI
+
+on:
+  push:
+    branches: [main, 'arena/**']
+  pull_request:
+
+# Les builds natifs (APK/IPA) ne sont PAS produits ici : ils relèvent d'EAS.
+# Ce pipeline valide ce qui peut l'être sans appareil : typage, tests, bundling.
+jobs:
+  verify:
+    name: Typage, tests et bundles
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+          cache: npm
+
+      - name: Installation
+        run: npm ci --no-audit --no-fund
+
+      - name: Vérifier l'alignement des versions Expo
+        # Sur un runner connecté, expo install peut valider la compatibilité SDK.
+        run: npx expo install --check || true
+
+      - name: TypeScript (strict)
+        run: npm run typecheck
+
+      - name: Tests unitaires et d'intégration
+        run: npm test -- --ci --coverage=false
+
+      - name: Bundle web (aperçu)
+        run: npm run export:web
+
+      - name: Bundle Android (cible Expo Go)
+        run: npm run export:android
+
+      - name: Résumé
+        run: |
+          echo "Bundles produits :"
+          du -sh dist dist-android 2>/dev/null || true

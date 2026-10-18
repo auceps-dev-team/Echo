@@ -1,0 +1,32 @@
+{
+  "extends": "expo/tsconfig.base",
+  "compilerOptions": {
+    "strict": true,
+    "noUncheckedIndexedAccess": true,
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
+    "noFallthroughCasesInSwitch": true,
+    "exactOptionalPropertyTypes": false,
+    "forceConsistentCasingInFileNames": true,
+    "paths": {
+      "@/*": [
+        "./src/*"
+      ]
+    },
+    "types": [
+      "jest",
+      "react-native"
+    ]
+  },
+  "include": [
+    "**/*.ts",
+    "**/*.tsx",
+    "nativewind-env.d.ts"
+  ],
+  "exclude": [
+    "node_modules",
+    "dist",
+    "dist-android",
+    "coverage"
+  ]
+}

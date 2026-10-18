@@ -1,0 +1,36 @@
+# dépendances
+node_modules/
+
+# build & exports
+dist/
+dist-android/
+dist-web/
+web-build/
+*.hbc
+*.jks
+*.p8
+*.p12
+*.key
+*.mobileprovision
+*.orig.*
+
+# expo
+.expo/
+expo-env.d.ts
+
+# tests & outillage
+coverage/
+.jest/
+
+# système / éditeur
+.DS_Store
+*.log
+.idea/
+.vscode/*
+!.vscode/settings.json.example
+
+# secrets — ne jamais committer de clés backend
+.env
+.env.*
+!.env.example
+src/config/secrets*.ts

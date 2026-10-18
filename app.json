@@ -1,0 +1,40 @@
+{
+  "expo": {
+    "name": "Echo",
+    "slug": "echo",
+    "version": "0.1.0",
+    "orientation": "portrait",
+    "userInterfaceStyle": "dark",
+    "backgroundColor": "#0B0713",
+    "scheme": "echo",
+    "ios": {
+      "supportsTablet": false,
+      "bundleIdentifier": "app.echo.mobile",
+      "infoPlist": {
+        "ITSAppUsesNonExemptEncryption": false
+      }
+    },
+    "android": {
+      "package": "app.echo.mobile",
+      "edgeToEdgeEnabled": true,
+      "predictiveBackGestureEnabled": false,
+      "permissions": []
+    },
+    "web": {
+      "bundler": "metro",
+      "output": "single",
+      "name": "Echo"
+    },
+    "plugins": [],
+    "experiments": {
+      "typedRoutes": false
+    },
+    "extra": {
+      "privacyByDesign": {
+        "minAge": 18,
+        "defaultSharing": "local-only",
+        "consentRequired": true
+      }
+    }
+  }
+}
